@@ -1,0 +1,32 @@
+---
+import TextLogo from "../TextLogo.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Leo Dev | Website</title>
+  </head>
+  <body class="bg-neutral-900 text-neutral-100 font-mono">
+    <nav class="p-5 flex justify-between bg-zinc-900 border-b border-b-zinc-800">
+      <header class="flex">
+        <TextLogo />
+      </header>
+      <ul class="font-semibold gap-5 items-center me-6 hidden md:flex">
+        <li><a href="">Blog</a></li>
+        <li><a href="">About</a></li>
+      </ul>
+    </nav>
+    <main class="p-3 mt-3">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<!-- Get Fonts Firacode -->
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+</style>

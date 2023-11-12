@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Leo Dev | Website</title>
+  </head>
+  <body class="bg-neutral-900 text-neutral-100 font-mono h-screen flex justify-center items-center">
+    <main class="">
+        <slot />
+    </main>
+  </body>
+</html>
+
+<!-- Get Fonts Firacode -->
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+  
+  body {
+    background-image: url("/mesh-background.svg");
+    background-size: cover;
+    background-repeat: repeat;
+  }
+</style>
