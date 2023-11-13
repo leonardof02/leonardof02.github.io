@@ -1,0 +1,42 @@
+---
+import BurguerMenuIcon from "../icons/BurguerMenuIcon.astro";
+import MailIcon from "../icons/MailIcon.astro";
+---
+
+<div class="flex md:hidden cursor-pointer hover:bg-neutral-800 rounded-xl">
+  <div id="menuButton">
+    <BurguerMenuIcon />
+  </div>
+  <div
+    id="menuContent"
+    class:list={["absolute left-0 top-24 h-5/6 w-full p-4 bg-transparent hidden"]}
+  >
+    <div class="bg-neutral-900 border border-neutral-700 w-full h-full rounded-xl p-8">
+      <ul
+        class="font-semibold gap-8 items-center me-6 text-3xl w-full h-full flex flex-col justify-center"
+      >
+        <li class="p-4 hover:bg-neutral-800">
+          <a href="https://leonardof02.github.io/noob-blog/">Blog</a>
+        </li>
+        <li class="p-4 hover:bg-neutral-800"><a href="/">About</a></li>
+        <li
+          class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-base text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+        >
+          <MailIcon width={32} height={32} />
+          <a> Contact Me</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  let isOpenMenu = false;
+
+  const menuButton = document.getElementById("menuButton");
+  const menuContent = document.getElementById("menuContent");
+  menuButton?.addEventListener("click", () => {
+    isOpenMenu ? menuContent.classList.add("hidden") : menuContent.classList.remove("hidden");
+    isOpenMenu = !isOpenMenu;
+  });
+</script>

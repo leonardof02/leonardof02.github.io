@@ -1,6 +1,7 @@
 ---
-import TextLogo from "../TextLogo.astro";
+import TextLogo from "../ui/TextLogo.astro";
 import MailIcon from "../icons/MailIcon.astro";
+import MobileMenu from "../ui/MobileMenu.astro";
 ---
 
 <html lang="en">
@@ -12,7 +13,7 @@ import MailIcon from "../icons/MailIcon.astro";
     <title>Leo Dev | Website</title>
   </head>
   <body class="bg-neutral-900 text-neutral-100 font-mono">
-    <nav class="p-5 flex justify-between bg-zinc-900 border-b border-b-zinc-800">
+    <nav class="p-5 flex justify-between items-center bg-zinc-900 border-b border-b-zinc-800">
       <header class="flex">
         <TextLogo />
       </header>
@@ -20,12 +21,13 @@ import MailIcon from "../icons/MailIcon.astro";
         <li><a href="https://leonardof02.github.io/noob-blog/">Blog</a></li>
         <li><a href="/">About</a></li>
         <li
-          class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+          class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-base text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
         >
           <MailIcon width={32} height={32} />
           <a> Contact Me</a>
         </li>
       </ul>
+      <MobileMenu />
     </nav>
     <main class="p-3 mt-3">
       <slot />

@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../components/layouts/MainLayout.astro";
-import TextLogoXL from "../components/TextLogoXL.astro";
+import TextLogoXL from "../components/ui/TextLogoXL.astro";
 
 // icons
 import BagIcon from "../components/icons/BagIcon.astro";
@@ -13,21 +13,21 @@ import ExternalLinkIcon from "../components/icons/ExternalLinkIcon.astro";
   <div class="flex flex-col mt-4 gap-4">
     <a
       href="https://t.me/devtipsz"
-      class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+      class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-base md:text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
     >
       <TelegramIcon width={32} height={32} />
       <span>Join My Community</span>
     </a>
     <a
       href="https://leonardof02.github.io/noob-blog/"
-      class="flex items-center justify-center gap-3 p-3 bg-orange-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+      class="flex items-center justify-center gap-3 p-3 bg-orange-400 uppercase rounded-md text-center font-extrabold text-base md:text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
     >
       <ExternalLinkIcon width={32} height={32} />
       <span>Explore Blog</span>
     </a>
     <a
       href="/projects"
-      class="flex items-center justify-center gap-3 p-3 bg-transparent border border-lime-500 text-lime-500 uppercase rounded-md text-center font-extrabold text-xl cursor-pointer hover:brightness-110 hover:bg-lime-950 hover:-translate-y-1 transition-all"
+      class="flex items-center justify-center gap-3 p-3 bg-transparent border border-lime-500 text-lime-500 uppercase rounded-md text-center font-extrabold text-base md:text-xl cursor-pointer hover:brightness-110 hover:bg-lime-950 hover:-translate-y-1 transition-all"
     >
       <BagIcon width={32} height={32} />
       <span>My Projects</span>
