@@ -1,5 +1,4 @@
 ---
-
 import GithubIcon from "../icons/tech/GithubIcon.astro";
 
 interface Props {
@@ -16,25 +15,27 @@ const { href, imgUrl, name, description, category, githubRepo } = Astro.props;
 
 <a href={href ?? "#"} class="h-full">
   <div
-    class="bg-neutral-800 border border-zinc-700 rounded-md p-4 transition-all hover:bg-zinc-800 hover:scale-95 h-full"
+    class="bg-neutral-800 border border-zinc-700 rounded-md p-4 transition-all hover:bg-zinc-800 hover:scale-95 h-full flex flex-col justify-between"
   >
-    <img src={imgUrl} class="w-full aspect-video rounded-md" />
-    <div class="mt-4 flex flex-wrap md:flex-nowrap gap-3 justify-between">
-      <h3 class="text-xl font-bold w-fit uppercase">{name}</h3>
-      <span
-        class:list={[
-          "p-1 font-extrabold",
-          { "bg-green-400": category === "FOSS" },
-          { "bg-blue-500": category === "PRIVATE" },
-          "text-neutral-900 rounded-sm w-fit h-fit",
-        ]}>{category === "FOSS" ? "FOSS" : "PRIVATE"}</span
-      >
+    <div>
+      <img src={imgUrl} class="w-full aspect-video rounded-md" />
+      <div class="mt-4 flex flex-wrap md:flex-nowrap gap-3 justify-between">
+        <h3 class="text-xl font-bold w-fit uppercase">{name}</h3>
+        <span
+          class:list={[
+            "p-1 font-extrabold",
+            { "bg-green-400": category === "FOSS" },
+            { "bg-blue-500": category === "PRIVATE" },
+            "text-neutral-900 rounded-sm w-fit h-fit",
+          ]}>{category === "FOSS" ? "FOSS" : "PRIVATE"}</span
+        >
+      </div>
+      <p class="grid hover:grid-cols-1 text-sm mt-3">{description}</p>
     </div>
-    <p class="grid hover:grid-cols-1 text-sm mt-3">{description}</p>
 
-    <div class="flex justify-between mt-3 items-center">
+    <div class="flex justify-between mt-3 items-center border-t border-t-neutral-700 pt-4">
       <div class="flex gap-3 items-center h-full flex-grow">
-        <slot class=""/>
+        <slot class="" />
       </div>
       {
         githubRepo && (

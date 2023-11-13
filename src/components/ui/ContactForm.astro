@@ -1,0 +1,75 @@
+---
+import LeftArrowIcon from "../../components/icons/LeftArrowIcon.astro";
+---
+
+<div class="flex flex-col mt-4 gap-4 bg-neutral-800 p-4 border border-neutral-700 w-full">
+  <form
+    onsubmit="sendEmail()"
+    method="post"
+    class="flex flex-col gap-6 w-full"
+  >
+    <div class="flex flex-row items-center gap-5">
+      <a
+        id="backButton"
+        class="rounded-full hover:brightness-75 hover:ring hover:ring-neutral-400 p-2 cursor-pointer"
+      >
+        <LeftArrowIcon />
+      </a>
+      <h3 class="text-3xl font-black">Send me an email</h3>
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="name" class="text-lg font-bold">Name</label>
+      <input
+        required
+        name="name"
+        id="name"
+        class="bg-neutral-900 rounded-sm outline-none p-2 border border-neutral-700 focus:ring-2 focus:ring-lime-600"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="email" class="text-lg font-bold">Your email</label>
+      <input
+        required
+        name="email"
+        type="email"
+        id="name"
+        class="bg-neutral-900 rounded-sm outline-none p-2 border border-neutral-700 focus:ring-2 focus:ring-lime-600"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="message" class="text-lg font-bold">Message</label>
+      <textarea
+        required
+        name="message"
+        id="message"
+        rows="10"
+        class="bg-neutral-900 border border-neutral-700 rounded-sm outline-none p-2 text-sm focus:ring-2 focus:ring-lime-600"
+      ></textarea>
+    </div>
+    <input
+      type="submit"
+      class="bg-lime-400 text-neutral-900 font-black p-2 rounded-md uppercase cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+      value="Email me"
+    />
+  </form>
+</div>
+
+<script defer>
+  const backButton = document.getElementById("backButton");
+  backButton?.addEventListener("click", () => {
+    window.history.back();
+  });
+
+  function sendEmail() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    window.location.href =
+      `mailto:leonardoarencibia2002@gmail.com?subject=${encodeURIComponent(
+        name
+      )}&body=${encodeURIComponent(`${email + "\n" + message}`)}` +
+      "&body=" +
+      encodeURIComponent(email + "\n" + message);
+  }
+
+</script>
