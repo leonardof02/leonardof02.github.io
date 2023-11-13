@@ -1,5 +1,6 @@
 ---
 import TextLogo from "../TextLogo.astro";
+import MailIcon from "../icons/MailIcon.astro";
 ---
 
 <html lang="en">
@@ -15,9 +16,15 @@ import TextLogo from "../TextLogo.astro";
       <header class="flex">
         <TextLogo />
       </header>
-      <ul class="font-semibold gap-5 items-center me-6 hidden md:flex">
-        <li><a href="">Blog</a></li>
-        <li><a href="">About</a></li>
+      <ul class="font-semibold gap-8 items-center me-6 hidden md:flex">
+        <li><a href="https://leonardof02.github.io/noob-blog/">Blog</a></li>
+        <li><a href="/">About</a></li>
+        <li
+          class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+        >
+          <MailIcon width={32} height={32} />
+          <a> Contact Me</a>
+        </li>
       </ul>
     </nav>
     <main class="p-3 mt-3">

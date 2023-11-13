@@ -1,56 +1,97 @@
 ---
 import PageLayout from "../../components/layouts/PageLayout.astro";
 import Card from "../../components/Card.astro";
+
+// Icons
+import HTMLIcon from "../../components/icons/tech/HTMLIcon.astro";
+import CSSIcon from "../../components/icons/tech/CSSIcon.astro";
+import JavascriptIcon from "../../components/icons/tech/JavascriptIcon.astro";
+import TypescriptIcon from "../../components/icons/tech/TypescriptIcon.astro";
+import ReactIcon from "../../components/icons/tech/ReactIcon.astro";
+import NextIcon from "../../components/icons/tech/NextIcon.astro";
+import NodeIcon from "../../components/icons/tech/NodeIcon.astro";
+import ExpressIcon from "../../components/icons/tech/ExpressIcon.astro";
+import SequelizeIcon from "../../components/icons/tech/SequelizeIcon.astro";
+import PythonIcon from "../../components/icons/tech/PythonIcon.astro";
+import TelegramIcon from "../../components/icons/tech/TelegramIcon.astro";
+import PhpIcon from "../../components/icons/tech/PhpIcon.astro";
+import LaravelIcon from "../../components/icons/tech/LaravelIcon.astro";
 ---
 
 <PageLayout>
-  <div class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
+  <div class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 items-center mb-40 mt-10">
     <Card
       href="https://leonardof02.github.io/frontendmentor-solutions/"
       name="Frontend Mentor Solutions"
       category="FOSS"
       description="Frontend Practice Exercises from frontendmentor.io made with diferent web tecnologies"
       imgUrl="/images/frontend-mentor-solutions.png"
-      githubRepo=""
-    />
+      githubRepo="https://github.com/leonardof02/frontendmentor-solutions/"
+    >
+      <HTMLIcon />
+      <CSSIcon />
+      <JavascriptIcon />
+      <TypescriptIcon />
+    </Card>
+
     <Card
       href="https://p2panda.io"
       name="P2Panda web"
       category="PRIVATE"
-      description="Secure platform for p2p cryptocurrency exchange"
+      description="Secure web platform for p2p cryptocurrency exchange"
       imgUrl="/images/p2panda.png"
-    />
+    >
+      <ReactIcon />
+      <NextIcon />
+      <TypescriptIcon />
+    </Card>
     <Card
-      href="https://leonardof02.github.io/frontendmentor-solutions/"
+      href="https://github.com/leonardof02/eventux-api/"
       name="Eventux API"
       category="FOSS"
       description="API REST built with Node + Express for event management at my university"
       imgUrl="/images/eventux-api.png"
       githubRepo="https://github.com/leonardof02/eventux-api/"
-    />
+    >
+      <NodeIcon />
+      <TypescriptIcon />
+      <SequelizeIcon />
+      <ExpressIcon />
+    </Card>
     <Card
-      href="https://leonardof02.github.io/frontendmentor-solutions/"
+      href="https://github.com/leonardof02/guagua-uci-pr"
       name="UCI/PR Travel Bot"
       category="FOSS"
       description="A Telegram Bot for booking bus trips to the university"
       imgUrl="/images/uci-pr-travel-bot.png"
-      githubRepo=""
-    />
+      githubRepo="https://github.com/leonardof02/guagua-uci-pr"
+    >
+      <PythonIcon />
+      <TelegramIcon />
+    </Card>
     <Card
       href="https://github.com/leonardof02/gallery-app-practice"
       name="UGallery"
       category="FOSS"
-      description="Frontend Practice: A Pictures Storage"
+      description="Frontend Practice: A Pictures Storage Web App"
       imgUrl="/images/ugallery.png"
       githubRepo="https://github.com/leonardof02/gallery-app-practice"
-    />
+    >
+      <ReactIcon />
+      <NextIcon />
+      <TypescriptIcon />
+    </Card>
     <Card
-      href="https://github.com/leonardof02/gallery-app-practice"
+      href="https://github.com/leonardof02/qr-menu"
       name="QR Menu"
       category="FOSS"
-      description="Restaurant Menu Management and QR Code Generator"
+      description="Web app for Restaurant Menu Management and QR Code Generator"
       imgUrl="/images/qr-menu.png"
-      githubRepo=""
-    />
+      githubRepo="https://github.com/leonardof02/qr-menu"
+    >
+      <PhpIcon />
+      <LaravelIcon />
+      <ReactIcon />
+    </Card>
   </div>
 </PageLayout>

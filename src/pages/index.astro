@@ -1,6 +1,11 @@
 ---
 import MainLayout from "../components/layouts/MainLayout.astro";
 import TextLogoXL from "../components/TextLogoXL.astro";
+
+// icons
+import BagIcon from "../components/icons/BagIcon.astro";
+import TelegramIcon from "../components/icons/TelegramIcon.astro";
+import ExternalLinkIcon from "../components/icons/ExternalLinkIcon.astro";
 ---
 
 <MainLayout>
@@ -10,65 +15,21 @@ import TextLogoXL from "../components/TextLogoXL.astro";
       href="https://t.me/devtipsz"
       class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
     >
-      <svg width="32px" height="32px" viewBox="0 0 48 48" fill="none">
-        <path
-          d="M41.4193 7.30899C41.4193 7.30899 45.3046 5.79399 44.9808 9.47328C44.8729 10.9883 43.9016 16.2908 43.1461 22.0262L40.5559 39.0159C40.5559 39.0159 40.3401 41.5048 38.3974 41.9377C36.4547 42.3705 33.5408 40.4227 33.0011 39.9898C32.5694 39.6652 24.9068 34.7955 22.2086 32.4148C21.4531 31.7655 20.5897 30.4669 22.3165 28.9519L33.6487 18.1305C34.9438 16.8319 36.2389 13.8019 30.8426 17.4812L15.7331 27.7616C15.7331 27.7616 14.0063 28.8437 10.7686 27.8698L3.75342 25.7055C3.75342 25.7055 1.16321 24.0823 5.58815 22.459C16.3807 17.3729 29.6555 12.1786 41.4193 7.30899Z"
-          fill="#000000"></path>
-      </svg>
+      <TelegramIcon width={32} height={32} />
       <span>Join My Community</span>
     </a>
     <a
+      href="https://leonardof02.github.io/noob-blog/"
       class="flex items-center justify-center gap-3 p-3 bg-orange-400 uppercase rounded-md text-center font-extrabold text-xl text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
     >
-      <svg viewBox="0 0 24 24" width="32px" height="32px" fill="none"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-          <g id="Interface / External_Link">
-            <path
-              id="Vector"
-              d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
-              stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </g>
-        </g></svg
-      >
-      <span> Explore Blog</span>
+      <ExternalLinkIcon width={32} height={32} />
+      <span>Explore Blog</span>
     </a>
     <a
       href="/projects"
       class="flex items-center justify-center gap-3 p-3 bg-transparent border border-lime-500 text-lime-500 uppercase rounded-md text-center font-extrabold text-xl cursor-pointer hover:brightness-110 hover:bg-lime-950 hover:-translate-y-1 transition-all"
     >
-      <svg
-        fill="rgb(132 204 22"
-        viewBox="0 0 32 32"
-        width="32px"
-        height="32px"
-        id="icon"
-        xmlns="http://www.w3.org/2000/svg"
-        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-          id="SVGRepo_tracerCarrier"
-          stroke-linecap="round"
-          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
-          ><defs
-            ><style>
-              .cls-1 {
-                fill: none;
-              }
-            </style></defs
-          ><title>portfolio</title><path
-            d="M28,10H22V6a2,2,0,0,0-2-2H12a2,2,0,0,0-2,2v4H4a2,2,0,0,0-2,2V26a2,2,0,0,0,2,2H28a2,2,0,0,0,2-2V12A2,2,0,0,0,28,10ZM12,6h8v4H12ZM4,26V12H28V26Z"
-          ></path><rect
-            id="_Transparent_Rectangle_"
-            data-name="<Transparent Rectangle>"
-            class="cls-1"
-            width="32"
-            height="32"></rect></g
-        ></svg
-      >
+      <BagIcon width={32} height={32} />
       <span>My Projects</span>
     </a>
   </div>
