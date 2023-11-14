@@ -57,13 +57,11 @@ import MailIcon from "../icons/MailIcon.astro";
       overlay.classList.add("hidden");
       document.body.style.overflowY = "auto";
       isOpenMenu = false;
-      console.log(isOpenMenu);
     } else {
       menuContent.classList.remove("hidden");
       overlay.classList.remove("hidden");
       document.body.style.overflowY = "hidden";
       isOpenMenu = true;
-      console.log(isOpenMenu);
     }
   });
 </script>
