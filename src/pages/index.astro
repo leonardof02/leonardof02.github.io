@@ -6,6 +6,7 @@ import TextLogoXL from "../components/ui/TextLogoXL.astro";
 import BagIcon from "../components/icons/BagIcon.astro";
 import TelegramIcon from "../components/icons/TelegramIcon.astro";
 import ExternalLinkIcon from "../components/icons/ExternalLinkIcon.astro";
+import GithubIcon from "../components/icons/tech/GithubIcon.astro";
 ---
 
 <MainLayout>
@@ -32,5 +33,12 @@ import ExternalLinkIcon from "../components/icons/ExternalLinkIcon.astro";
       <BagIcon width={32} height={32} />
       <span>My Projects</span>
     </a>
+    <a
+    href="https://github.com/leonardof02"
+    class="flex items-center justify-center gap-3 p-3 bg-neutral-800 border border-neutral-700 text-neutral-200 uppercase rounded-md text-center font-extrabold text-base md:text-xl cursor-pointer hover:brightness-110 hover:bg-neutral-700 hover:-translate-y-1 transition-all"
+  >
+    <GithubIcon width={32} height={32} />
+    <span>Github</span>
+  </a>
   </div>
 </MainLayout>
