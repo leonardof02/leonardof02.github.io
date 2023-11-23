@@ -7,42 +7,70 @@ import MailIcon from "../icons/MailIcon.astro";
   <div id="menuButton" class="z-20">
     <BurguerMenuIcon />
   </div>
-  <div
-    id="menuContent"
-    class:list={["absolute left-0 top-24 h-5/6 w-full p-4 bg-transparent hidden z-10"]}
-  >
-    <div class="bg-neutral-900 border border-neutral-700 w-full h-full rounded-xl p-8">
-      <ul
-        class="font-semibold gap-8 items-center me-6 text-3xl w-full h-full flex flex-col justify-center"
-      >
-        <li class="p-4 hover:bg-neutral-800">
-          <a href="https://leonardof02.github.io/noob-blog/">Blog</a>
-        </li>
-        <li class="p-4 hover:bg-neutral-800">
-          <a href="https://github.com/leonardof02/">Github</a>
-        </li>
-        <li class="p-4 hover:bg-neutral-800"><a href="/">About</a></li>
-        <li
-          class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-base text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+  <div id="menuContent" class="absolute left-0 top-24 w-full p-4 bg-transparent hidden z-10">
+    <div id="menuContainer" class="bg-[#00000099] border border-neutral-700 rounded-xl p-8">
+      <div id="menuContainer" class="grid grid-rows-0 transition-all overflow-hidden">
+        <ul
+          class="font-semibold gap-8 items-center me-6 text-3xl w-full h-full flex flex-col justify-center"
         >
-          <MailIcon width={32} height={32} />
-          <a href="/contact"> Contact Me</a>
-        </li>
-      </ul>
+          <li class="p-4 hover:bg-slate-200 hover:text-neutral-800">
+            <a href="https://leonardof02.github.io/noob-blog/">Blog</a>
+          </li>
+          <li class="p-4 hover:bg-slate-200 hover:text-neutral-800">
+            <a href="https://github.com/leonardof02/">Github</a>
+          </li>
+          <li class="p-4 hover:bg-slate-200 hover:text-neutral-800"><a href="/">About</a></li>
+          <li
+            class="flex items-center justify-center gap-3 p-3 bg-lime-400 uppercase rounded-md text-center font-extrabold text-base text-zinc-900 cursor-pointer hover:brightness-110 hover:-translate-y-1 transition-all"
+          >
+            <MailIcon width={32} height={32} />
+            <a href="/contact"> Contact Me</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div
     id="overlay"
-    class="absolute bg-transparent backdrop-blur-md h-full w-full left-0 top-0 z-0 hidden"
+    class="absolute bg-transparent backdrop-blur-md h-[150%] w-full left-0 top-0 z-0 hidden"
   >
   </div>
 </div>
+
+<style>
+  #overlay {
+    animation: blurred 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  #menuContainer {
+    animation: menu-open .2s cubic-bezier(0.165, 0.64, 0.44, 1);
+  }
+
+  @keyframes blurred {
+    from {
+      backdrop-filter: blur(0px);
+    }
+    to {
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  @keyframes menu-open {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+</style>
 
 <script defer>
   let isOpenMenu = false;
 
   const menuButton = document.getElementById("menuButton");
   const menuContent = document.getElementById("menuContent");
+  const menuContainer = document.getElementById("menuContainer");
   const overlay = document.getElementById("overlay");
 
   overlay.addEventListener("click", () => {
@@ -53,11 +81,13 @@ import MailIcon from "../icons/MailIcon.astro";
 
   menuButton?.addEventListener("click", () => {
     if (isOpenMenu) {
+      menuContainer.classList.add("grid");
       menuContent.classList.add("hidden");
       overlay.classList.add("hidden");
       document.body.style.overflowY = "auto";
       isOpenMenu = false;
     } else {
+      menuContainer.classList.remove("grid");
       menuContent.classList.remove("hidden");
       overlay.classList.remove("hidden");
       document.body.style.overflowY = "hidden";
