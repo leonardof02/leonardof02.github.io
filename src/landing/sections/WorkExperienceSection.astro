@@ -1,0 +1,171 @@
+---
+import ExperienceCard, {
+  type TechInfo,
+} from "../../components/ExperienceCard.astro";
+import {
+  React,
+  Typescript,
+  Nextjs,
+  Csharp,
+  Dotnet,
+  ChakraUI,
+  ReactQuery,
+  ReactRaimbowComponents,
+  Socketio,
+  Vite,
+  Node,
+  Redux,
+  Dexie,
+} from "../../components/icons";
+
+const experience = [
+  {
+    title: "Trainee Frontend Developer",
+    period: "abr. 2023 - jul. 2023",
+    company: "Z17 - Parque Científico Tecnológico de La Habana",
+    description: [
+      "Trabajé de prácticas en el desarrollo de una aplicación Web de chat colaborativo",
+      "Traduje diseños desde Figma a código.",
+      "Integré frontend con backend usando HTTP y WebSockets",
+      "Usé redux para manejar el estado de la aplicación.",
+      "Usé Dexie.js para manejar la base de datos local en el navegador.",
+    ],
+    technologies: [
+      {
+        name: "Typescript",
+        src: Typescript.src,
+      },
+      {
+        name: "React",
+        src: React.src,
+      },
+      {
+        name: "React Raimbow Components",
+        src: ReactRaimbowComponents.src,
+      },
+      {
+        name: "Socket.io",
+        src: Socketio.src,
+      },
+      {
+        name: "Redux",
+        src: Redux.src,
+      },
+      {
+        name: "Dexie.js",
+        src: Dexie.src,
+      },
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    period: "2023",
+    company: "NOX Creation",
+    description: [
+      "Participé en un equipo para el desarrollo de una plataforma de intercambio P2P de criptomonedas",
+      "Desarrollé y maqueté las vistas de la UI a través de un diseño de Figma",
+      "Contribuí al desarrollo de la API en el Backend",
+      "Usé SSR con Next.js para mejorar el rendimiento de la aplicación.",
+      "Usé React Query para manejar la petición de datos en el frontend.",
+    ],
+    technologies: [
+      {
+        name: "Next.js",
+        src: Nextjs.src,
+      },
+      {
+        name: "React Query",
+        src: ReactQuery.src,
+      },
+      {
+        name: "Chakra UI",
+        src: ChakraUI.src,
+      },
+      {
+        name: "Node",
+        src: Node.src,
+      },
+      {
+        name: "Typescript",
+        src: Typescript.src,
+      },
+    ],
+  },
+  {
+    title: "Full Stack Developer",
+    period: "2024",
+    company: "Napptilus Tech Labs",
+    description: [
+      "Participé en el desarrollo de Hypergraph, una plataforma de detección temprana de intrusos en redes de computadoras",
+      "Desarrollé y maqueté las vistas de la UI a través de un diseño de Figma",
+      "Implementé lógica del backend con .NET y C#",
+      "Comuniqué mensajes en tiempo real con SignalR y protocolos como UDP y TCP",
+      "Implementé gráficos para la visualización de datos con D3.js",
+    ],
+    technologies: [
+      {
+        name: "Typescript",
+        src: Typescript.src,
+      },
+      {
+        name: "C#",
+        src: Csharp.src,
+      },
+      {
+        name: ".NET Core",
+        src: Dotnet.src,
+      },
+      {
+        name: "React",
+        src: React.src,
+      },
+      {
+        name: "Vite",
+        src: Vite.src,
+      },
+    ],
+  },
+];
+---
+
+<section class="flex items-center justify-center w-full">
+  <div
+    class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-32"
+  >
+    <h2 class="font-title text-3xl font-bold">Experiencia Laboral</h2>
+    <div
+      class="flex flex-col gap-4 w-full border-l-4 border-default mt-5 relative items-start px-5"
+    >
+      {experience.map((exp) => <ExperienceCard {...exp} />)}
+    </div>
+    <a
+      href="public/cv/leonardo-cv.pdf"
+      download="Leonardo Arencibia CV.pdf"
+      class="flex justify-center gap-3 bg-main text-white border border-default hover:bg-zinc-800 transition-colors font-title text-xl font-bold px-10 py-4 rounded-full w-full"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-download"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Descarga mi CV
+    </a>
+    <a
+      href="/projects"
+      class="flex justify-center gap-3 bg-white text-black border border-default hover:bg-zinc-300 transition-colors font-title text-xl font-bold px-10 py-4 rounded-full w-full"
+    >
+      Mis proyectos
+    </a>
+  </div>
+</section>

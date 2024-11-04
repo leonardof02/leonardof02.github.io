@@ -1,0 +1,17 @@
+---
+import MobileMenu from "./MobileMenu";
+---
+
+<header
+  class="flex justify-between items-center border-b border-default px-10 py-4 text-main"
+>
+  <a href="/">
+    <h1 class="font-title text-3xl font-extrabold">Leodev Portfolio</h1>
+  </a>
+  <nav class="font-title text-xl font-bold gap-4 hidden md:flex items-center">
+    <a href="/projects">Proyectos</a>
+    <a href="/blog">Blog</a>
+    <a href="/contact" class="bg-white text-black p-2 hover:bg-zinc-300 rounded-sm transition-colors">Contáctame</a>
+  </nav>
+  <MobileMenu client:load/>
+</header>

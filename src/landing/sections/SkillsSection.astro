@@ -1,0 +1,87 @@
+---
+import {
+  Javascript,
+  Typescript,
+  Java,
+  Python,
+  Csharp,
+  Nextjs,
+  Vue,
+  AstroIcon,
+  Nest,
+  Express,
+  Dotnet,
+  React
+} from "../../components/icons";
+import SkillCard from "../../components/SkillCard.astro";
+
+const languages = [
+  {
+    image: Javascript.src,
+    name: "JavaScript",
+  },
+  {
+    image: Typescript.src,
+    name: "TypeScript",
+  },
+  {
+    image: Java.src,
+    name: "Java",
+  },
+  {
+    image: Python.src,
+    name: "Python",
+  },
+  {
+    image: Csharp.src,
+    name: "C#",
+  },
+];
+
+const frameworks = [
+  {
+    image: React.src,
+    name: "React",
+  },
+  {
+    image: Nextjs.src,
+    name: "Next.js",
+  },
+  {
+    image: Vue.src,
+    name: "Vue",
+  },
+  {
+    image: AstroIcon.src,
+    name: "Astro",
+  },
+  {
+    image: Nest.src,
+    name: "Nest",
+  },
+  {
+    image: Express.src,
+    name: "Express",
+  },
+  {
+    image: Dotnet.src,
+    name: ".NET",
+  },
+];
+---
+
+<section class="flex items-center justify-center w-full">
+  <div
+    class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-32"
+  >
+    <h2 class="font-title text-3xl font-bold">Habilidades</h2>
+    <h5 class="font-title text-xl mt-10">Lenguajes</h5>
+    <div class="flex flex-col md:flex-row gap-4 w-full">
+      {languages.map((skill) => <SkillCard {...skill} />)}
+    </div>
+    <h5 class="font-title text-xl mt-10">Frameworks</h5>
+    <div class="flex flex-col md:flex-row gap-4 w-full">
+      {frameworks.map((skill) => <SkillCard {...skill} />)}
+    </div>
+  </div>
+</section>

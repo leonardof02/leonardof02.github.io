@@ -1,0 +1,47 @@
+---
+export interface TechInfo {
+  name: string;
+  src: string;
+}
+
+interface Props {
+  title: string;
+  period: string;
+  company: string;
+  description: string[];
+  technologies: TechInfo[];
+}
+
+const { title, period, company, description, technologies } = Astro.props;
+---
+
+<div
+  class="text-start gap-2 flex flex-col before:absolute before:-left-2 before:rounded-full before:w-3 before:h-3 before:bg-border-default"
+>
+  <div
+    class="flex gap-5 items-center justify-start font-title -translate-y-2.5"
+  >
+    <h4 class="text-start text-2xl font-semibold">{title}</h4>
+    <p class="text-secondary">{period}</p>
+  </div>
+  <h5 class="font-title text-xl text-secondary">
+    {company}
+  </h5>
+  <ul>
+    {
+      description.map((desc) => (
+        <li class="flex gap-2 items-center">
+          <input type="checkbox" disabled checked />
+          {desc}
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex gap-3 pb-10">
+    {
+      technologies.map((tech) => (
+        <img src={tech.src} alt={tech.name} title={tech.name} class="w-6 h-6" />
+      ))
+    }
+  </div>
+</div>

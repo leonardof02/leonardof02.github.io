@@ -1,0 +1,44 @@
+---
+import YouTube from "../assets/icons/youtube.svg";
+import LinkedIn from "../assets/icons/linkedin.svg";
+import Github from "../assets/icons/github.svg";
+import Gmail from "../assets/icons/gmail.svg";
+---
+
+<footer class="border-t border-default px-10 py-20 mt-20 text-main">
+  <div class="flex flex-col md:flex-row md:justify-between items-center gap-5">
+    <div class="flex flex-col gap-2">
+      <h1 class="font-title text-3xl font-extrabold">Leodev Portfolio</h1>
+      <div class="flex gap-4 filter saturate-0 md:justify-start justify-center">
+        <a href="https://www.youtube.com/@leonardof02">
+          <img src={YouTube.src} alt="YouTube" class="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/leonardo-fabian-arencibia-arteaga-545244240/"
+        >
+          <img src={LinkedIn.src} alt="LinkedIn" class="w-6 h-6" />
+        </a>
+        <a href="https://github.com/leonardof02/">
+          <img src={Github.src} alt="Github" class="w-6 h-6" />
+        </a>
+        <a href="maito:leonardoarencibia2002@gmail.com">
+          <img src={Gmail.src} alt="Gmail" class="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5">
+      <button
+        class="w-full bg-white text-black border border-default transition-colors font-title text-xl font-bold px-10 py-2 rounded-full"
+      >
+        <a href="/contact">Contáctame</a>
+      </button>
+      <nav class="font-title text-xl font-bold flex gap-4">
+        <a href="/projects">Proyectos</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </div>
+  </div>
+  <p class="text-secondary w-full text-center md:text-end">
+    © 2023 Leonardo Arencibia. Todos los derechos reservados.
+  </p>
+</footer>

@@ -1,0 +1,12 @@
+---
+interface Props {
+  image: string;
+  name: string;
+}
+const { image, name } = Astro.props;
+---
+
+<div class="border border-default p-3 flex gap-4 items-center w-full">
+  <img src={image} alt={name} class="w-6 h-6" />
+  <h4 class="font-title text-xl font-bold">{name}</h4>
+</div>

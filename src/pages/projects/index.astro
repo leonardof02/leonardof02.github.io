@@ -1,0 +1,157 @@
+---
+import ProjectCard from "../../components/ProjectCard.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+import React from "../../assets/icons/react.svg";
+import Nextjs from "../../assets/icons/nextjs.svg";
+import Typescript from "../../assets/icons/typescript.svg";
+import Node from "../../assets/icons/node.svg";
+import ChakraUI from "../../assets/icons/chakra-ui.svg";
+import Tailwind from "../../assets/icons/tailwind.svg";
+import ReactQuery from "../../assets/icons/react-query.svg";
+import Prisma from "../../assets/icons/prisma.svg";
+import DiscordStudy from "../../assets/images/discord-study-bot.png";
+import DiscordJs from "../../assets/icons/discordjs.svg";
+import AstroIcon from "../../assets/icons/astro.svg";
+import Md from "../../assets/icons/markdown.svg";
+import Ucidevs from "../../assets/images/ucidevs.png";
+import QrMenu from "../../assets/images/qr-menu.png";
+import Php from "../../assets/icons/php.svg";
+import Laravel from "../../assets/icons/laravel.svg";
+import Html from "../../assets/icons/html.svg";
+import Css from "../../assets/icons/css.svg";
+import Javascript from "../../assets/icons/javascript.svg";
+
+import P2Panda from "../../assets/images/p2panda.png";
+import VigiaNorte from "../../assets/images/vigia-norte.png";
+import NotBetting from "../../assets/images/notbetting.png";
+import FrontendMentor from "../../assets/images/frontend-mentor.png";
+
+const workProjects = [
+  {
+    name: "P2Panda.io",
+    image: P2Panda.src,
+    description:
+      "Aplicación de intercambio P2P de criptomonedas. Contiene un gráfico de tendencias de precios de criptomonedas, un sistema de búsqueda de criptomonedas y un sistema de rating.",
+    technologies: [
+      React.src,
+      Nextjs.src,
+      ChakraUI.src,
+      Typescript.src,
+      Node.src,
+      ReactQuery.src,
+    ],
+  },
+  {
+    name: "Landing Page Mediadores Vigia Norte",
+    image: VigiaNorte.src,
+    description:
+      "Landing page de un grupo de mediadores radicados en Vigia Norte ecuador. Tiene además un sistema de reservas para clientes en el sitio de administradores.",
+    technologies: [
+      React.src,
+      Nextjs.src,
+      Typescript.src,
+      Tailwind.src,
+      Node.src,
+    ],
+    link: "https://mediadoresnorte3.com/",
+  },
+  {
+    name: "Notbetting.com",
+    image: NotBetting.src,
+    description:
+      "Sistema donde los apostadores se ponen en contacto con Tipsters experimentados para que puedan apostar de forma inteligente.",
+    technologies: [
+      React.src,
+      Nextjs.src,
+      Typescript.src,
+      Node.src,
+      Tailwind.src,
+      Prisma.src,
+    ],
+    link: "https://notbetting.com/",
+  },
+];
+
+const personalProjects = [
+  {
+    name: "Discord Study Bot",
+    image: DiscordStudy.src,
+    description:
+      "Bot para promover la competitividad entre grupos de estudiantes en Discord. Cuenta con un sistema de puntuación según las horas de estudio de cada integrante del grupo y realiza un ranking de puntaciones para hacer más entretenido el estudio.",
+    technologies: [Node.src, Typescript.src, DiscordJs.src],
+    link: "https://github.com/leonardof02/discord-study-bot",
+  },
+  {
+    name: "Blog para la comunidad de programadores de mi universidad",
+    image: Ucidevs.src,
+    description:
+      "Blog colaborativo y open source donde los programadores de mi universidad pueden compartir sus conocimientos y aprender de otros.",
+    technologies: [AstroIcon.src, Md.src],
+    link: "https://ucidevs.github.io/",
+  },
+  {
+    name: "Menu QR",
+    image: QrMenu.src,
+    description:
+      "Aplicación web para generar un menú de QR para visualizar el menú de comida en restaurantes.",
+    technologies: [React.src, Php.src, Laravel.src],
+    link: "https://github.com/leonardof02/qr-menu",
+  },
+  {
+    name: "Frontend Mentor Solutions",
+    image: FrontendMentor.src,
+    description:
+      "Repositorio de soluciones a varios proyectos de Frontend Mentor (frontendmentor.io).",
+    technologies: [Html.src, Css.src, Javascript.src],
+    link: "https://leonardof02.github.io/frontendmentor-solutions/",
+  },
+];
+---
+
+<MainLayout
+  title="Proyectos"
+  description="Proyectos personales y en los que he participado"
+>
+  <section class="flex items-center justify-center w-full">
+    <div
+      class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-16"
+    >
+      <div class="w-full pb-10">
+        <h2 class="font-title text-3xl font-bold w-full">
+          Proyectos en los que he participado
+        </h2>
+        <p class="text-secondary">
+          Estos son algunos de los proyectos en los que he estado trabajando en
+          los últimos años.
+        </p>
+      </div>
+      {
+        workProjects.map((project, index) => (
+          <ProjectCard {...project} reverse={index % 2 !== 0} />
+        ))
+      }
+    </div>
+  </section>
+  <hr class="border-default w-full" />
+  <section class="flex items-center justify-center w-full">
+    <div
+      class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-16"
+    >
+      <div class="w-full pb-10">
+        <h2 class="font-title text-3xl font-bold w-full">
+          Proyectos personales
+        </h2>
+        <p class="text-secondary">
+          Proyectos que he hecho por hobby o por aprender nuevas tecnologías en
+          mi tiempo libre.
+        </p>
+      </div>
+      {
+        personalProjects.map((project, index) => (
+          <ProjectCard {...project} reverse={index % 2 !== 0} />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

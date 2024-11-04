@@ -1,0 +1,47 @@
+---
+import { YouTube, LinkedIn, Github, Gmail, Me } from "../../components/icons";
+import YoutuberCard from "../../components/YoutuberCard.astro";
+---
+
+<section class="flex items-center justify-center w-full">
+  <div
+    class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 text-center max-w-5xl w-full mt-32"
+  >
+    <div class="flex flex-grow flex-col gap-4 w-full text-start">
+      <h1 class="font-title text-5xl font-extrabold">Hello, world!</h1>
+      <p class="text-xl max-w-xl">
+        Soy Leonardo Arencibia, desarrollador full stack con experiencia en
+        varias tecnlogías. Tengo una alta capacidad para adaptarme a las nuevas
+        tendencias tecnológicas y aprender nuevas tecnologías rápidamente. A lo
+        largo de mi carrera he participado en varios proyectos enfocados en la
+        web, aplicaciones de gestión y servicios online. En mi tiempo libre soy
+        profesor en mi canal de YouTube.
+      </p>
+      <div class="flex gap-4">
+        <a href="https://www.youtube.com/@leonardof02">
+          <img src={YouTube.src} alt="YouTube" class="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/leonardo-fabian-arencibia-arteaga-545244240/"
+        >
+          <img src={LinkedIn.src} alt="LinkedIn" class="w-6 h-6" />
+        </a>
+        <a href="https://github.com/leonardof02/">
+          <img src={Github.src} alt="Github" class="w-6 h-6" />
+        </a>
+        <a href="maito:leonardoarencibia2002@gmail.com">
+          <img src={Gmail.src} alt="Gmail" class="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 w-full justify-center items-center relative">
+      <img
+        class="w-full rounded-full max-w-72"
+        src={Me.src}
+        alt="Leonardo's profile picture"
+        class="w-1/2 rounded-full"
+      />
+      <YoutuberCard />
+    </div>
+  </div>
+</section>

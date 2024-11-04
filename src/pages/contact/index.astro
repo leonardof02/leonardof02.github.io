@@ -1,0 +1,8 @@
+---
+import ContactForm from "../../components/ContactForm.tsx";
+import MainLayout from "../../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Contacto" description="Envíame un correo para contactarme">
+  <ContactForm client:load />
+</MainLayout>

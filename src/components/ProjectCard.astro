@@ -1,0 +1,62 @@
+---
+interface Props {
+  name: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  reverse?: boolean;
+  link?: string;
+}
+const { image, name, description, technologies, reverse, link } = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex flex-col w-full gap-10 py-5",
+    { "md:flex-row-reverse": reverse },
+    { "md:flex-row": !reverse },
+  ]}
+>
+  <div class="w-full">
+    <img src={image} alt="Project Image" class="w-full border border-default" />
+  </div>
+  <div class="w-full text-start flex-col flex gap-3">
+    <div class="flex flex-col items-start gap-3">
+      <h4 class="font-title text-3xl font-bold">{name}</h4>
+      <div class="flex gap-3">
+        <p>|</p>
+        {
+          technologies.map((tech) => (
+            <img src={tech} alt={tech} class="w-6 h-6" />
+          ))
+        }
+      </div>
+    </div>
+    <p class="text-secondary">
+      {description}
+    </p>
+    {
+      link && (
+        <button class="flex justify-center items-center gap-3 w-full md:w-fit px-6 py-3 border border-default hover:bg-zinc-800 transition-colors">
+          <a href={link}>Learn More</a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-external-link"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </button>
+      )
+    }
+  </div>
+</div>

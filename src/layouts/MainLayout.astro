@@ -1,0 +1,29 @@
+---
+import "@fontsource-variable/space-grotesk";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Leodev Portfolio</title>
+  </head>
+  <body class="bg-main text-main">
+    <Header />
+    <main class="px-10 py-5">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
