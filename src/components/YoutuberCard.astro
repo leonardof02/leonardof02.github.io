@@ -1,7 +1,8 @@
 ---
 import { YouTube } from "../components/icons/index";
-const YOUTUBE_API_KEY = "AIzaSyBXPTVSjvLjrqVa-7uz8LpoOnpDq1bQOLQ";
-const YOUTUBE_CHANNEL_ID = "UCikk0dXuvTMDVDmXVAhwAAw";
+
+const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
+const YOUTUBE_CHANNEL_ID = import.meta.env.YOUTUBE_CHANNEL_ID;
 const GET_CHANNEL_DATA_URL = `https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=${YOUTUBE_CHANNEL_ID}&key=${YOUTUBE_API_KEY}`;
 
 const response = await fetch(GET_CHANNEL_DATA_URL);
