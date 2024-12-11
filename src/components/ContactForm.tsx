@@ -14,7 +14,7 @@ const formSchema: z.Schema<FormData> = z.object({
   message: z.string().min(5, "Mensaje muy corto"),
 });
 
-export default function ContactForm() {
+export default function ContactForm({ serverUrl }: { serverUrl: string }) {
   const {
     register,
     handleSubmit,
@@ -25,7 +25,21 @@ export default function ContactForm() {
   });
 
   async function onSubmit(data: FormData) {
-    alert("Mensaje enviado correctamente");
+    const response = await fetch(`${serverUrl}/send-mail`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      alert("‼️ Ocurrió un error al enviar el mensaje");
+      return;
+    }
+
+    alert("✅ Mensaje enviado con éxito");
     reset({
       email: "",
       name: "",

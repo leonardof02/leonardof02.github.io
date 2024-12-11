@@ -1,8 +1,10 @@
 ---
 import ContactForm from "../../components/ContactForm.tsx";
 import MainLayout from "../../layouts/MainLayout.astro";
+
+const emailServerUrl = import.meta.env.EMAIL_SERVER_URL;
 ---
 
 <MainLayout title="Contacto" description="Envíame un correo para contactarme">
-  <ContactForm client:load />
+  <ContactForm serverUrl={emailServerUrl} client:load />
 </MainLayout>

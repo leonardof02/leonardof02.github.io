@@ -1,0 +1,60 @@
+---
+import type { YouTubeVideo } from "../../types/YouTubeVideo";
+import { YouTube } from "../../components/icons";
+
+const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
+const YOUTUBE_CHANNEL_ID = import.meta.env.YOUTUBE_CHANNEL_ID;
+const GET_LAST_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&order=date&maxResults=5&key=${YOUTUBE_API_KEY}`;
+
+const response = await fetch(GET_LAST_VIDEOS_URL);
+const data = await response.json();
+
+// console.log(data.items.map((video: any) => video.snippet));
+
+const videos = data.items.map((video: any) => ({
+  id: video.id.videoId,
+  title: video.snippet.title,
+  description: video.snippet.description,
+  thumbnailURL: video.snippet.thumbnails.medium.url,
+  publishedAt: video.snippet.publishedAt,
+})) as YouTubeVideo[];
+---
+
+<section class="flex items-center justify-center w-full">
+  <div
+    class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-32"
+  >
+    <div class="flex gap-4 items-center">
+      <img src={YouTube.src} alt="YouTube" class="w-6 h-6" />
+      <h2 class="font-title text-3xl font-bold">Mis últimos vídeos</h2>
+    </div>
+    <p class="max-w-xl text-start">
+      Me apasiona enseñar y mi canal de YouTube es la prueba. Si deseas aprender
+      conmigo puedes echar un vistazo a mis ultimos vídeos.
+    </p>
+    <div class="flex flex-col md:flex-row gap-4 w-full mt-4">
+      {
+        videos.map((video) => (
+          <article class="w-full flex-col flex gap-2">
+            <a
+              href={`https://www.youtube.com/watch?v=${video.id}`}
+              class="w-full"
+            >
+              <img
+                src={video.thumbnailURL}
+                alt={video.title}
+                class="w-full border border-default rounded-xl"
+              />
+              <h3 class="font-title text-xl font-bold text-start mt-2">
+                {video.title}
+              </h3>
+              <p class="text-secondary text-start">
+                {new Date(video.publishedAt).toLocaleDateString()}
+              </p>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
