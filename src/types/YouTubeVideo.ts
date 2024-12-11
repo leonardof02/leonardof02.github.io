@@ -4,4 +4,5 @@ export type YouTubeVideo = {
   description: string;
   thumbnailURL: string;
   publishedAt: string;
+  views?: string;
 };

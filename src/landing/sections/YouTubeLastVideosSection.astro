@@ -1,6 +1,7 @@
 ---
 import type { YouTubeVideo } from "../../types/YouTubeVideo";
 import { YouTube } from "../../components/icons";
+import type { any } from "astro:schema";
 
 const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
 const YOUTUBE_CHANNEL_ID = import.meta.env.YOUTUBE_CHANNEL_ID;
@@ -9,7 +10,8 @@ const GET_LAST_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=s
 const response = await fetch(GET_LAST_VIDEOS_URL);
 const data = await response.json();
 
-// console.log(data.items.map((video: any) => video.snippet));
+console.log(data);
+
 
 const videos = data.items.map((video: any) => ({
   id: video.id.videoId,
@@ -17,6 +19,7 @@ const videos = data.items.map((video: any) => ({
   description: video.snippet.description,
   thumbnailURL: video.snippet.thumbnails.medium.url,
   publishedAt: video.snippet.publishedAt,
+  // views: video.statistics.viewCount,
 })) as YouTubeVideo[];
 ---
 
@@ -34,7 +37,7 @@ const videos = data.items.map((video: any) => ({
     </p>
     <div class="flex flex-col md:flex-row gap-4 w-full mt-4">
       {
-        videos.map((video) => (
+        videos.map((video, index) => (
           <article class="w-full flex-col flex gap-2">
             <a
               href={`https://www.youtube.com/watch?v=${video.id}`}
@@ -48,6 +51,10 @@ const videos = data.items.map((video: any) => ({
               <h3 class="font-title text-xl font-bold text-start mt-2">
                 {video.title}
               </h3>
+              {/* <div>
+                <span>👀</span>
+                <span>{viewsPerVideo}</span>
+              </div> */}
               <p class="text-secondary text-start">
                 {new Date(video.publishedAt).toLocaleDateString()}
               </p>
