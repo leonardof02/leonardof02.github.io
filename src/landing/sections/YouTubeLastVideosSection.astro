@@ -1,17 +1,29 @@
 ---
 import type { YouTubeVideo } from "../../types/YouTubeVideo";
 import { YouTube } from "../../components/icons";
-import type { any } from "astro:schema";
+
+import Calendar from "../../assets/icons/calendar.svg";
+import Views from "../../assets/icons/views.svg";
 
 const YOUTUBE_API_KEY = import.meta.env.YOUTUBE_API_KEY;
 const YOUTUBE_CHANNEL_ID = import.meta.env.YOUTUBE_CHANNEL_ID;
-const GET_LAST_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&order=date&maxResults=5&key=${YOUTUBE_API_KEY}`;
+const GET_LAST_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&order=date&maxResults=6&key=${YOUTUBE_API_KEY}`;
 
 const response = await fetch(GET_LAST_VIDEOS_URL);
 const data = await response.json();
-
+const videosIds = data.items.map((video: any) => video.id.videoId);
 console.log(data);
 
+const viewsResponse = await fetch(
+  `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videosIds.join(
+    ","
+  )}&key=${YOUTUBE_API_KEY}`
+);
+const viewsData = await viewsResponse.json();
+
+const views = viewsData.items.map((video: any) =>
+  formatNumber(video.statistics.viewCount)
+);
 
 const videos = data.items.map((video: any) => ({
   id: video.id.videoId,
@@ -19,8 +31,24 @@ const videos = data.items.map((video: any) => ({
   description: video.snippet.description,
   thumbnailURL: video.snippet.thumbnails.medium.url,
   publishedAt: video.snippet.publishedAt,
-  // views: video.statistics.viewCount,
 })) as YouTubeVideo[];
+
+function formatNumber(num: number) {
+  if (num >= 1000000000) return (num / 1000000000).toFixed(1) + "B";
+  if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+  if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+  return num;
+}
+
+function formatDate(date: Date) {
+  const formatter = new Intl.DateTimeFormat("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  return formatter.format(date);
+}
 ---
 
 <section class="flex items-center justify-center w-full">
@@ -35,31 +63,32 @@ const videos = data.items.map((video: any) => ({
       Me apasiona enseñar y mi canal de YouTube es la prueba. Si deseas aprender
       conmigo puedes echar un vistazo a mis ultimos vídeos.
     </p>
-    <div class="flex flex-col md:flex-row gap-4 w-full mt-4">
+    <div class="flex flex-col gap-4 w-full mt-4 md:grid grid-cols-3">
       {
         videos.map((video, index) => (
-          <article class="w-full flex-col flex gap-2">
-            <a
-              href={`https://www.youtube.com/watch?v=${video.id}`}
-              class="w-full"
-            >
+          <a
+            href={`https://www.youtube.com/watch?v=${video.id}`}
+            class="w-full flex-col flex  gap-2 p-3 hover:bg-zinc-800 border border-default rounded-xl transition-colors"
+          >
+            <article class="w-full">
               <img
                 src={video.thumbnailURL}
                 alt={video.title}
                 class="w-full border border-default rounded-xl"
               />
-              <h3 class="font-title text-xl font-bold text-start mt-2">
-                {video.title}
-              </h3>
-              {/* <div>
-                <span>👀</span>
-                <span>{viewsPerVideo}</span>
-              </div> */}
-              <p class="text-secondary text-start">
-                {new Date(video.publishedAt).toLocaleDateString()}
-              </p>
-            </a>
-          </article>
+              <h3 class="text-xl font-bold text-start mt-2 mb-2">{video.title}</h3>
+              <div class="flex items-center gap-2 text-secondary">
+                <img src={Views.src} alt="Views" class="w-6 h-6" />
+                <span class="text-secondary">{views[index]}</span>
+              </div>
+              <div class="flex items-center gap-2 text-secondary">
+                <img src={Calendar.src} alt="Views" class="w-6 h-6" />
+                <p class="text-secondary text-start">
+                  {formatDate(new Date(video.publishedAt))}
+                </p>
+              </div>
+            </article>
+          </a>
         ))
       }
     </div>
