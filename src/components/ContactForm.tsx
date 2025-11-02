@@ -25,26 +25,7 @@ export default function ContactForm({ serverUrl }: { serverUrl: string }) {
   });
 
   async function onSubmit(data: FormData) {
-    const response = await fetch(`${serverUrl}/send-mail`, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      alert("‼️ Ocurrió un error al enviar el mensaje");
-      return;
-    }
-
-    alert("✅ Mensaje enviado con éxito");
-    reset({
-      email: "",
-      name: "",
-      message: "",
-    });
+    window.location.href = `mailto:${data.email}?subject=Mensaje de ${data.name}&body=${data.message}`;
   }
 
   return (
