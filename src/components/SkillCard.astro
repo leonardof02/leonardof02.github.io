@@ -6,7 +6,9 @@ interface Props {
 const { image, name } = Astro.props;
 ---
 
-<div class="border border-default p-3 flex gap-4 items-center w-full">
+<div
+  class="skill-card border border-default p-3 flex gap-4 items-center w-full"
+>
   <img src={image} alt={name} class="w-6 h-6" />
   <h2 class="font-title text-xl font-bold">{name}</h2>
 </div>

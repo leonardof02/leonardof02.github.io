@@ -5,7 +5,7 @@ import YoutuberCard from "../../components/YoutuberCard.astro";
 
 <section class="flex items-center justify-center w-full">
   <div
-    class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 text-center max-w-5xl w-full mt-32"
+    class="main-text-container flex flex-col-reverse md:flex-row items-center justify-center gap-10 text-center max-w-5xl w-full mt-32"
   >
     <div class="flex flex-grow flex-col gap-4 w-full text-start">
       <h2 class="font-title text-5xl font-extrabold">Hello, world!</h2>
@@ -52,3 +52,23 @@ import YoutuberCard from "../../components/YoutuberCard.astro";
     </div>
   </div>
 </section>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  const mainTextContainer = document.querySelector(".main-text-container");
+
+  inView(mainTextContainer, () =>
+    animate(
+      mainTextContainer,
+      {
+        opacity: [0, 1],
+        y: [50, 0],
+      },
+      { duration: 0.5, delay: 0.3, type: "spring" }
+    )
+  );
+</script>

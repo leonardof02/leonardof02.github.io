@@ -29,6 +29,10 @@ import Dotnet from "../../assets/icons/dotnet.svg";
 import Redux from "../../assets/icons/redux.svg";
 import Dexie from "../../assets/icons/dexiejs.svg";
 
+import Expo from "../../assets/icons/expo.png";
+import Firebase from "../../assets/icons/firebase.png";
+import Shadcn from "../../assets/icons/shadcn.png";
+
 export {
   ExperienceCard,
   ReactRaimbowComponents,
@@ -56,4 +60,7 @@ export {
   React,
   Dexie,
   Redux,
+  Expo,
+  Firebase,
+  Shadcn,
 };

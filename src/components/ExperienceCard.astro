@@ -16,7 +16,7 @@ const { title, period, company, description, technologies } = Astro.props;
 ---
 
 <div
-  class="text-start gap-2 flex flex-col before:absolute before:-left-2 before:rounded-full before:w-3 before:h-3 before:bg-border-default"
+  class="opacity-0 experience-card text-start gap-2 flex flex-col before:absolute before:-left-2 before:rounded-full before:w-3 before:h-3 before:bg-border-default"
 >
   <div
     class="flex gap-5 items-center justify-start font-title -translate-y-2.5"
@@ -40,7 +40,7 @@ const { title, period, company, description, technologies } = Astro.props;
   <div class="flex gap-3 pb-10">
     {
       technologies.map((tech) => (
-        <img src={tech.src} alt={tech.name} title={tech.name} class="w-6 h-6" />
+        <img src={tech.src} alt={tech.name} title={tech.name} class="w-6 h-6 experience-tech-icon" />
       ))
     }
   </div>

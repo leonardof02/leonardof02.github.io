@@ -11,8 +11,9 @@ const GET_LAST_VIDEOS_URL = `https://www.googleapis.com/youtube/v3/search?part=s
 
 const response = await fetch(GET_LAST_VIDEOS_URL);
 const data = await response.json();
-const videosIds = data.items.map((video: any) => video.id.videoId);
 console.log(data);
+const videosIds = data.items.map((video: any) => video.id.videoId);
+console.log(videosIds);
 
 const viewsResponse = await fetch(
   `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videosIds.join(
@@ -68,7 +69,7 @@ function formatDate(date: Date) {
         videos.map((video, index) => (
           <a
             href={`https://www.youtube.com/watch?v=${video.id}`}
-            class="w-full flex-col flex  gap-2 p-3 hover:bg-zinc-800 border border-default rounded-xl transition-colors"
+            class="youtube-video active:scale-95 opacity-0 w-full flex-col flex  gap-2 p-3 hover:bg-zinc-800 border border-default rounded-xl transition-all"
           >
             <article class="w-full">
               <img
@@ -94,3 +95,26 @@ function formatDate(date: Date) {
     </div>
   </div>
 </section>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  const videoCards = document.querySelectorAll(".youtube-video");
+
+  videoCards.forEach((card, index) => {
+    inView(
+      card,
+      () => {
+        animate(
+          card,
+          { opacity: [0, 1], scale: [0.4, 1] },
+          { duration: 0.5, delay: index * 0.1, type: "spring" }
+        );
+      },
+      { margin: "-100px" }
+    );
+  });
+</script>

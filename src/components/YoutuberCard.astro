@@ -8,13 +8,20 @@ const GET_CHANNEL_DATA_URL = `https://youtube.googleapis.com/youtube/v3/channels
 const response = await fetch(GET_CHANNEL_DATA_URL);
 const data = await response.json();
 
-const suscribers = data.items[0].statistics.subscriberCount;
-const videos = data.items[0].statistics.videoCount;
+const suscribers = data?.items?.[0]?.statistics.subscriberCount ?? 0;
+const videos = data?.items?.[0]?.statistics.videoCount ?? 0;
+
+function formatNumber(num: number) {
+  if (num >= 1000000000) return (num / 1000000000).toFixed(1) + "B";
+  if (num >= 1000000) return (num / 1000000).toFixed(1) + "M";
+  if (num >= 1000) return (num / 1000).toFixed(1) + "K";
+  return num;
+}
 ---
 
 <a
   href="https://youtube.com/@leonardof02"
-  class="border border-default p-3 flex flex-col md:gap-2 w-fit rounded-lg hover:bg-zinc-800 right-0 absolute -bottom-8 gap-0.5 md:-bottom-20 bg-main"
+  class="youtube-card border border-default p-3 flex flex-col md:gap-2 w-fit rounded-lg hover:bg-zinc-800 right-0 absolute -bottom-8 gap-0.5 md:-bottom-20 bg-main"
 >
   <div class="flex gap-5 items-center justify-start font-title">
     <img src={YouTube.src} alt={"YouTube suscribers"} class="w-6 h-6" />
@@ -25,6 +32,23 @@ const videos = data.items[0].statistics.videoCount;
   </p>
   <div class="flex gap-2 items-center justify-between">
     <p class="text-start font-mono text-xs">{videos} videos</p>
-    <p class="text-start font-mono text-xs">{suscribers} suscriptores</p>
+    <p class="text-start font-mono text-xs">
+      {formatNumber(suscribers)} suscriptores
+    </p>
   </div>
 </a>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  const youtubeCard = document.querySelector(".youtube-card");
+
+  animate(
+    youtubeCard,
+    { opacity: [0, 1], y: [50, 0] },
+    { duration: 1, type: "spring" }
+  );
+</script>

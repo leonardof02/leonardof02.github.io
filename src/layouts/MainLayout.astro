@@ -17,6 +17,12 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <script type="module">
+      import {
+        animate,
+        inView,
+      } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+    </script>
     <title>{title} | Leodev Portfolio</title>
   </head>
   <body class="bg-main text-main">

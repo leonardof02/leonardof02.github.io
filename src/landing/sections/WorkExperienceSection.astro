@@ -14,6 +14,9 @@ import {
   Node,
   Redux,
   Dexie,
+  Expo,
+  Shadcn,
+  Firebase,
 } from "../../components/icons";
 
 const experience = [
@@ -134,24 +137,28 @@ const experience = [
     ],
     technologies: [
       {
+        name: "React Native",
+        src: React.src,
+      },
+      {
+        name: "Expo",
+        src: Expo.src,
+      },
+      {
+        name: "Firebase",
+        src: Firebase.src,
+      },
+      {
         name: "Typescript",
         src: Typescript.src,
       },
       {
-        name: "C#",
-        src: Csharp.src,
+        name: "Shadcn UI",
+        src: Shadcn.src,
       },
       {
-        name: ".NET Core",
-        src: Dotnet.src,
-      },
-      {
-        name: "React",
-        src: React.src,
-      },
-      {
-        name: "Vite",
-        src: Vite.src,
+        name: "Next.js",
+        src: Nextjs.src,
       },
     ],
   },
@@ -199,3 +206,46 @@ const experience = [
     </a>
   </div>
 </section>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  document.querySelectorAll(".experience-card").forEach((card) => {
+    inView(
+      card,
+      (item) => {
+        animate(
+          item,
+          {
+            opacity: [0, 1],
+            y: [200, 0],
+          },
+          { duration: 0.7, type: "spring" }
+        );
+
+        const icons = card.querySelectorAll(".experience-tech-icon");
+
+        icons.forEach((icon, index) => {
+          animate(
+            icon,
+            {
+              opacity: [0, 1],
+              scale: [0, 1],
+              y: [20, 0],
+              rotate: [-180, 0],
+            },
+            {
+              duration: 1,
+              delay: 0.15 * index, // ⏱ Cascada uno por uno
+              type: "spring",
+            }
+          );
+        });
+      },
+      { amount: 0.8 }
+    );
+  });
+</script>

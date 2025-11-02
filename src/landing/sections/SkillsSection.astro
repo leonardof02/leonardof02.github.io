@@ -11,7 +11,7 @@ import {
   Nest,
   Express,
   Dotnet,
-  React
+  React,
 } from "../../components/icons";
 import SkillCard from "../../components/SkillCard.astro";
 
@@ -72,16 +72,61 @@ const frameworks = [
 
 <section class="flex items-center justify-center w-full">
   <div
-    class="flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-32"
+    class="skills-section flex flex-col items-start justify-center gap-3 text-center max-w-5xl w-full mt-32"
   >
     <h2 class="font-title text-3xl font-bold">Habilidades</h2>
     <h3 class="font-title text-xl mt-10">Lenguajes</h3>
-    <div class="flex flex-col md:flex-row gap-4 w-full">
+    <div class="flex flex-col md:flex-row gap-4 w-full skill-section-languages">
       {languages.map((skill) => <SkillCard {...skill} />)}
     </div>
     <h3 class="font-title text-xl mt-10">Frameworks</h3>
-    <div class="flex flex-col md:flex-row gap-4 w-full">
+    <div
+      class="flex flex-col md:flex-row gap-4 w-full skill-section-frameworks"
+    >
       {frameworks.map((skill) => <SkillCard {...skill} />)}
     </div>
   </div>
 </section>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  const delayStep = 0.1;
+
+  function revealList(selector) {
+    const cards = Array.from(document.querySelectorAll(selector));
+    if (!cards.length) return;
+
+    cards.forEach((card, index) => {
+      if (card.dataset.revealed) return;
+
+      inView(
+        card,
+        () => {
+          if (card.dataset.revealed) return;
+          card.dataset.revealed = "true";
+
+          animate(
+            card,
+            {
+              opacity: [0, 1],
+              y: [40, 0],
+            },
+            {
+              duration: 0.7,
+              delay: index * delayStep,
+              type: "spring",
+            }
+          );
+        },
+        { amount: 0.3 }
+      );
+    });
+  }
+
+  revealList(".skill-section-languages .skill-card");
+  revealList(".skill-section-frameworks .skill-card");
+</script>

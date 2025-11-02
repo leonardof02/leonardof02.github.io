@@ -165,3 +165,46 @@ const personalProjects = [
     </div>
   </section>
 </MainLayout>
+
+<script type="module">
+  import {
+    animate,
+    inView,
+  } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+
+  document.querySelectorAll(".project-card").forEach((card) => {
+    inView(
+      card,
+      (item) => {
+        animate(
+          item,
+          {
+            opacity: [0, 1],
+            y: [200, 0],
+          },
+          { duration: 0.7, type: "spring" }
+        );
+
+        const icons = card.querySelectorAll(".tech-icon");
+
+        icons.forEach((icon, index) => {
+          animate(
+            icon,
+            {
+              opacity: [0, 1],
+              scale: [0, 1],
+              y: [20, 0],
+              rotate: [-180, 0],
+            },
+            {
+              duration: 1,
+              delay: 0.15 * index, 
+              type: "spring",
+            }
+          );
+        });
+      },
+      { amount: 0.8 }
+    );
+  });
+</script>

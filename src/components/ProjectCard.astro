@@ -12,6 +12,7 @@ const { image, name, description, technologies, reverse, link } = Astro.props;
 
 <div
   class:list={[
+    "project-card opacity-0",
     "flex flex-col w-full gap-10 py-5",
     { "md:flex-row-reverse": reverse },
     { "md:flex-row": !reverse },
@@ -27,7 +28,7 @@ const { image, name, description, technologies, reverse, link } = Astro.props;
         <p>|</p>
         {
           technologies.map((tech) => (
-            <img src={tech} alt={tech} class="w-6 h-6" />
+            <img src={tech} alt={tech} class="tech-icon w-6 h-6" />
           ))
         }
       </div>
