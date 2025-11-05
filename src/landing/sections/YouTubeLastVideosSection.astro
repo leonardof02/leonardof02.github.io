@@ -77,7 +77,9 @@ function formatDate(date: Date) {
                 alt={video.title}
                 class="w-full border border-default rounded-xl"
               />
-              <h3 class="text-xl font-bold text-start mt-2 mb-2">{video.title}</h3>
+              <h3 class="text-xl font-bold text-start mt-2 mb-2">
+                {video.title}
+              </h3>
               <div class="flex items-center gap-2 text-secondary">
                 <img src={Views.src} alt="Views" class="w-6 h-6" />
                 <span class="text-secondary">{views[index]}</span>
@@ -105,16 +107,12 @@ function formatDate(date: Date) {
   const videoCards = document.querySelectorAll(".youtube-video");
 
   videoCards.forEach((card, index) => {
-    inView(
-      card,
-      () => {
-        animate(
-          card,
-          { opacity: [0, 1], scale: [0.4, 1] },
-          { duration: 0.5, delay: index * 0.1, type: "spring" }
-        );
-      },
-      { margin: "-100px" }
-    );
+    inView(card, () => {
+      animate(
+        card,
+        { opacity: [0, 1], scale: [0.7, 1] },
+        { duration: 0.3, delay: index * 0.1 }
+      );
+    });
   });
 </script>
